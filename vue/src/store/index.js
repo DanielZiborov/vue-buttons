@@ -1,4 +1,6 @@
 import modals from './modals'
+import OceanWebsiteCardFirstStore from './OceanWebsite/OceanWebsiteCardFirstStore'
+import OceanWebsiteCardSecondStore from './OceanWebsite/OceanWebsiteCardSecondStore'
 
 export default {
   namespaced: true,
@@ -6,6 +8,8 @@ export default {
   getters: {},
   mutations: {},
   modules: {
-    modals
+    modals,
+    OceanWebsiteCardFirstStore,
+    OceanWebsiteCardSecondStore
   }
 }

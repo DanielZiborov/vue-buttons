@@ -66,10 +66,6 @@ h2 {
       height: @sizeBorderDefault;
       background-color: @cBaseTwo;
     }
-
-    &-v {
-
-    }
   }
 
   &-loading {
