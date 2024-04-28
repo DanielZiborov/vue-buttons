@@ -1,6 +1,6 @@
 import modals from './modals'
-import OceanWebsiteCardFirstStore from './OceanWebsite/OceanWebsiteCardFirstStore'
-import OceanWebsiteCardSecondStore from './OceanWebsite/OceanWebsiteCardSecondStore'
+import TravelWebsiteCardFirstStore from './TravelWebsite/TravelWebsiteCardFirstStore'
+import TravelWebsiteCardSecondStore from './TravelWebsite/TravelWebsiteCardSecondStore'
 
 export default {
   namespaced: true,
@@ -9,7 +9,7 @@ export default {
   mutations: {},
   modules: {
     modals,
-    OceanWebsiteCardFirstStore,
-    OceanWebsiteCardSecondStore
+    TravelWebsiteCardFirstStore,
+    TravelWebsiteCardSecondStore
   }
 }
