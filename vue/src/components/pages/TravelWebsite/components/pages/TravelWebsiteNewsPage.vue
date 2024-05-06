@@ -2,14 +2,14 @@
 	<div class="news-page">
 		<div class="news-page__container">
 			<div 
-				class="news-page__card"
 				v-for="news in filteredNews"
+				class="news-page__card"
 				:key="news.id"
 			>
 				<img 
+					class="news-page__image"
 					:src="news.image"
 					:alt="news.id"
-					class="news-page__image"
 				>
 				<h1 class="news-page__name">{{ news.name }}</h1>
 				<p class="news-page__text">{{ news.text }}</p>

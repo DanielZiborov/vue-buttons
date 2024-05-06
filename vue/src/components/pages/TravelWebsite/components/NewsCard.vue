@@ -3,11 +3,11 @@
     <div class="cards" ref="сontainer">
       <div
         v-for="(news, index) in getNews"
+        class="cards__content"
         :key="news.id"
         :style="{
           'scroll-snap-align': activeIndex === index ? 'start' : 'none',
         }"
-        class="cards__content"
       >
         <router-link :to="{ name: 'TRAVELWEBSITENEWSPAGE', params: { id: news.id } }">
           <img 

@@ -20,8 +20,8 @@
         <div class="footer__input-box">
             <input 
                 type="text" 
-                class="footer__input" 
                 placeholder="Enter your Email                     >"
+                class="footer__input" 
             >
         </div>
         <div class="footer__icons">
