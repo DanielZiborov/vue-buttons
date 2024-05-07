@@ -31,15 +31,18 @@ export default {
       searchText: '',
     };
   },
-  methods: {
-    handleSearch() {
+  created() {
+    this.handleSearch = (() => {
       this.$emit("search", this.searchText);
-    },
+    }).bind(this);
+  },
+  methods: {
+    handleSearch: null 
   },
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .fone {
   background-color: #343338;
   padding-top: 25px;
@@ -54,15 +57,13 @@ export default {
   align-items: center;
   padding-left: 20px;
   background-color: white;
-}
-
-.custom-search__icon {
-  margin-left: 100px;
-  cursor: pointer;
-}
-
-.custom-search__input {
-  border: none;
-  outline: none;
+  &__icon {
+    margin-left: 100px;
+    cursor: pointer;
+  }
+  &__input {
+    border: none;
+    outline: none;
+  }
 }
 </style>

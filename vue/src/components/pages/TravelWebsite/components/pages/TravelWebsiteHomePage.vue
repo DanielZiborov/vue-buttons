@@ -16,7 +16,7 @@ import SecondSection from "../SecondSection.vue"
 import UnderHead from '../UnderHead.vue'
 export default {
   name: "TravelWebsiteHomePage",
-    components: {
+  components: {
     HomeHeader,
     SecondSection,
     HomeFooter,
@@ -27,10 +27,10 @@ export default {
 
 <style lang="less" scoped>
 .home {
-    background-color: none;
-    &__container {
-        max-width: 1520px;
-        margin: 0 auto;
-    }
+  background-color: none;
+  &__container {
+    max-width: 1520px;
+    margin: 0 auto;
+  }
 }
 </style>

@@ -58,7 +58,7 @@ export default {
     mutations: {
       addMember (state, newMember) {
         state.members.push(newMember);
-              localStorage.setItem('members', JSON.stringify(state.members));
+        localStorage.setItem('members', JSON.stringify(state.members));
       }
     },
     actions: {
