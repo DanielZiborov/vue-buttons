@@ -31,13 +31,13 @@ export default {
       searchText: '',
     };
   },
-  created() {
-    this.handleSearch = (() => {
-      this.$emit("search", this.searchText);
-    }).bind(this);
-  },
   methods: {
-    handleSearch: null 
+    handleSearch() {
+      const emitSearch = () => {
+        this.$emit("search", this.searchText);
+      };
+      emitSearch();
+    }
   },
 }
 </script>
