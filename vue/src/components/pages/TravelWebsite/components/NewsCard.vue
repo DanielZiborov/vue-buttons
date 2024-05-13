@@ -9,12 +9,10 @@
           'scroll-snap-align': activeIndex === index ? 'start' : 'none',
         }"
       >
-        <router-link :to="{ name: 'TRAVELWEBSITENEWSPAGE', params: { id: news.id } }">
-          <img 
-            class="cards__image" 
-            :src="news.image" 
-            :alt="news.name" 
-          />
+        <router-link
+          :to="{ name: 'TRAVELWEBSITENEWSPAGE', params: { id: news.id } }"
+        >
+          <img class="cards__image" :src="news.image" :alt="news.name" />
           <h2 class="cards__name">{{ news.name }}</h2>
           <h2 class="cards__price">{{ news.price }}</h2>
         </router-link>
@@ -23,9 +21,9 @@
     <div class="indicators">
       <span
         v-for="(indicator, index) in indicatorsCount"
-        :key="index" 
-    :class="{ active: index === activeIndex }"
-    @click="() => goToSlide(index)"
+        :key="index"
+        :class="{ active: index === activeIndex }"
+        @click="() => goToSlide(index)"
         class="indicator"
       />
     </div>
@@ -36,29 +34,27 @@
 import { mapGetters } from "vuex";
 export default {
   name: "NewsCard",
-  data () {
+  data() {
     return {
       activeIndex: 0,
     };
   },
   computed: {
-    ...mapGetters('TravelWebsiteCardFirstStore', [
-      'getNews'
-    ]),
+    ...mapGetters("TravelWebsiteCardFirstStore", ["getNews"]),
     indicatorsCount() {
       return Math.ceil(this.getNews.length / 2 + 1);
-    }
+    },
   },
   methods: {
     goToSlide(index) {
       this.activeIndex = index;
-      const cards = this.$refs.сontainer.querySelectorAll('.cards__content');
+      const cards = this.$refs.сontainer.querySelectorAll(".cards__content");
       cards.forEach((card, i) => {
-          card.style.display = i === index ? 'block' : 'none';
+        card.style.display = i === index ? "block" : "none";
       });
-    }
+    },
   },
-  mounted () {
+  mounted() {
     this.$nextTick(() => {
       this.$refs.сontainer.style.overflowX = "hidden";
     });
@@ -70,46 +66,46 @@ export default {
 .scroll-container {
   position: relative;
   overflow: hidden;
-  width:100%;
+  width: 100%;
 }
 .cards {
-  display:flex;
-  position:relative;
+  display: flex;
+  position: relative;
   width: 100%;
   scroll-snap-type: x mandatory;
   overflow: hidden;
   &__content {
     width: 100%;
-    border:none;
+    border: none;
     display: none;
-  }
-  &__content:first-child {
-    display: block;
+    &:first-child {
+      display: block;
+    }
   }
   &__image {
-    width:100%;
+    width: 100%;
     height: auto;
     justify-content: center;
     align-content: center;
   }
   &__name {
-    position:absolute;
-    color:white;
-    font-size:100px;
-    top:150px;
-    left:190px;
+    position: absolute;
+    color: white;
+    font-size: 100px;
+    top: 150px;
+    left: 190px;
   }
   &__price {
-    position:absolute;
-    color:white;
-    top:260px;
-    left:190px;
+    position: absolute;
+    color: white;
+    top: 260px;
+    left: 190px;
   }
 }
 .indicators {
   position: absolute;
-  left:190px;
-  top:380px;
+  left: 190px;
+  top: 380px;
 }
 .indicator {
   width: 10px;
@@ -119,8 +115,8 @@ export default {
   display: inline-block;
   margin: 0 2px;
   cursor: pointer;
-  &.active { 
-    background-color:white;
+  &.active {
+    background-color: white;
   }
 }
 </style>

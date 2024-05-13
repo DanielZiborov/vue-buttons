@@ -5,12 +5,15 @@
         <div class="second-section__description">
           <h1 class="second-section__title">Featured products</h1>
         </div>
-        <CustomSearch placeholderText="" @search="filterMembers" />
+        <CustomSearch
+          placeholderText=""
+          @search="() => filterMembers(searchText)"
+        />
       </div>
       <div class="second-section__cards-place">
         <div class="second-section__cards">
-          <TravelCards 
-            v-for='member in filteredMembers'
+          <TravelCards
+            v-for="member in filteredMembers"
             :key="member.id"
             :id="member.id"
             :image="member.image"
@@ -22,40 +25,40 @@
     </div>
   </div>
 </template>
-  
+
 <script>
 import TravelCards from "./TravelCards.vue";
 import CustomSearch from "./CustomSearch";
 import { mapGetters } from "vuex";
 export default {
-  name: 'SecondSection',
+  name: "SecondSection",
   components: {
     TravelCards,
     CustomSearch,
   },
-  data () {
+  data() {
     return {
-      filteredMembersData: []
+      filteredMembersData: [],
     };
   },
   computed: {
-    ...mapGetters('TravelWebsiteCardSecondStore', [
-      'getMembers'
-    ]),
-    filteredMembers () {
-      return this.filteredMembersData.length != 0 ? this.filteredMembersData : this.getMembers;
-    }
+    ...mapGetters("TravelWebsiteCardSecondStore", ["getMembers"]),
+    filteredMembers() {
+      return this.filteredMembersData.length != 0
+        ? this.filteredMembersData
+        : this.getMembers;
+    },
   },
   methods: {
-    filterMembers (searchText) {
-      this.filteredMembersData = this.getMembers.filter(member =>
-      member.name.toLowerCase().includes(searchText.toLowerCase())
+    filterMembers(searchText) {
+      this.filteredMembersData = this.getMembers.filter((member) =>
+        member.name.toLowerCase().includes(searchText.toLowerCase())
       );
-    }
-  }
+    },
+  },
 };
 </script>
-  
+
 <style scoped lang="less">
 .second-section {
   margin-bottom: -16px;
@@ -67,7 +70,7 @@ export default {
     max-width: 1200px;
   }
   &__cards-place {
-    width:100%;
+    width: 100%;
     background-color: #252527;
   }
   &__envelope {
@@ -76,7 +79,7 @@ export default {
     align-items: center;
   }
   &__description {
-    width:100%;
+    width: 100%;
     padding-top: 25px;
     padding-bottom: 25px;
     background-color: #343338;
@@ -92,4 +95,3 @@ export default {
   }
 }
 </style>
-  

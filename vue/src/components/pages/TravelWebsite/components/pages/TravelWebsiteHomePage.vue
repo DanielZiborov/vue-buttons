@@ -1,28 +1,28 @@
 <template>
-    <div class="home">
-        <div class="home__container">
-            <HomeHeader class="home__header"/>
-            <UnderHead/>
-            <SecondSection />
-            <HomeFooter class="home__footer"/>
-        </div>
+  <div class="home">
+    <div class="home__container">
+      <HomeHeader class="home__header" />
+      <UnderHead />
+      <SecondSection />
+      <HomeFooter class="home__footer" />
     </div>
+  </div>
 </template>
 
 <script>
-import HomeHeader from "../HomeHeader.vue"
-import HomeFooter from "../HomeFooter.vue"
-import SecondSection from "../SecondSection.vue"
-import UnderHead from '../UnderHead.vue'
+import HomeHeader from "../HomeHeader.vue";
+import HomeFooter from "../HomeFooter.vue";
+import SecondSection from "../SecondSection.vue";
+import UnderHead from "../UnderHead.vue";
 export default {
   name: "TravelWebsiteHomePage",
   components: {
     HomeHeader,
     SecondSection,
     HomeFooter,
-    UnderHead
-  }
-}
+    UnderHead,
+  },
+};
 </script>
 
 <style lang="less" scoped>

@@ -7,14 +7,14 @@
         id="search-input"
         class="custom-search__input"
         :placeholder="placeholderText"
-        @input="handleSearch"
-      >
+        @input="() => handleSearch()"
+      />
       <label class="custom-search__label" for="search-input">
         <img
           src="/TravelWebsite/search.svg"
           alt="search"
           class="custom-search__icon"
-        >
+        />
       </label>
     </div>
   </div>
@@ -24,22 +24,19 @@
 export default {
   name: "CustomSearch",
   props: {
-    placeholderText: String
+    placeholderText: String,
   },
-  data () {
+  data() {
     return {
-      searchText: '',
+      searchText: "",
     };
   },
   methods: {
     handleSearch() {
-      const emitSearch = () => {
-        this.$emit("search", this.searchText);
-      };
-      emitSearch();
-    }
+      this.$emit("search", this.searchText);
+    },
   },
-}
+};
 </script>
 
 <style scoped lang="less">
@@ -52,7 +49,7 @@ export default {
 .custom-search {
   width: 300px;
   height: 40px;
-  display:flex;
+  display: flex;
   justify-content: start;
   align-items: center;
   padding-left: 20px;

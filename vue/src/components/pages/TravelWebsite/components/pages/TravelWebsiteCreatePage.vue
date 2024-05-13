@@ -1,77 +1,75 @@
 <template>
-    <div class="create">
-        <div class="create__container">
-            <div class="create__section">
-                <div class="create__form">
-                    <label for="name" class="create__label">name:</label>
-                    <input 
-                        v-model="formData.name" 
-                        type="text" 
-                        placeholder="name" 
-                        id="name" 
-                        class="create__input"
-                    >
-                </div>
-                <div class="create__form">
-                    <label for="id" class="create__label">Id:</label>
-                    <input 
-                        v-model="formData.id" 
-                        type="text" 
-                        placeholder="Id" 
-                        id="id" 
-                        class="create__input"
-                    >
-                </div>
-                <div class="create__form">
-                    <label for="img" class="create__label">image:</label>
-                    <input 
-                        v-model="formData.image" 
-                        type="url" 
-                        placeholder="URL of image" 
-                        id="img" 
-                        class="create__input"
-                    >
-                </div>
-                <div class="create__form">
-                    <label for="price" class="create__label">price:</label>
-                    <input 
-                        v-model="formData.price" 
-                        type="text" 
-                        placeholder="price" 
-                        id="price" 
-                        class="create__input"
-                    >
-                </div>
-                <button @click="createMember" class="create__btn">Create</button>
-            </div>
-            <Footer />
+  <div class="create">
+    <div class="create__container">
+      <div class="create__section">
+        <div class="create__form">
+          <label for="name" class="create__label">name:</label>
+          <input
+            v-model="formData.name"
+            type="text"
+            placeholder="name"
+            id="name"
+            class="create__input"
+          />
         </div>
+        <div class="create__form">
+          <label for="id" class="create__label">Id:</label>
+          <input
+            v-model="formData.id"
+            type="text"
+            placeholder="Id"
+            id="id"
+            class="create__input"
+          />
+        </div>
+        <div class="create__form">
+          <label for="img" class="create__label">image:</label>
+          <input
+            v-model="formData.image"
+            type="url"
+            placeholder="URL of image"
+            id="img"
+            class="create__input"
+          />
+        </div>
+        <div class="create__form">
+          <label for="price" class="create__label">price:</label>
+          <input
+            v-model="formData.price"
+            type="text"
+            placeholder="price"
+            id="price"
+            class="create__input"
+          />
+        </div>
+        <button @click="createMember" class="create__btn">Create</button>
+      </div>
+      <Footer />
     </div>
+  </div>
 </template>
 
 <script>
-import Footer from "../HomeFooter.vue"
+import Footer from "../HomeFooter.vue";
 import { mapActions } from "vuex";
 export default {
   name: "TravelWebsiteCreatePage",
-    components: {
-        Footer
-    },
-    data () {
+  components: {
+    Footer,
+  },
+  data() {
     return {
       formData: {
-        name: '',
-        id: '',
-        image: '',
-        price: '',
-      }
+        name: "",
+        id: "",
+        image: "",
+        price: "",
+      },
     };
   },
-    methods: {
-        ...mapActions('TravelWebsiteCardSecondStore', [
-      'addMember'
-    ]),
-    createMember () {
+  methods: {
+    ...mapActions("TravelWebsiteCardSecondStore", ["addMember"]),
+    createMember() {
       const newMember = {
         name: this.formData.name,
         id: this.formData.id,
@@ -79,19 +77,19 @@ export default {
         price: this.formData.price,
       };
       this.addMember(newMember);
-      this.formData.name = '';
-      this.formData.id = '';
-      this.formData.image = '';
-      this.formData.price = '';
-    }
-  }
-}
+      this.formData.name = "";
+      this.formData.id = "";
+      this.formData.image = "";
+      this.formData.price = "";
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>
 .create {
   background-color: #252527;
-  width:100%;
+  width: 100%;
   &__container {
     max-width: 1520px;
     margin: 0 auto;
@@ -104,7 +102,7 @@ export default {
   &__label {
     margin-right: 10px;
     font-size: 14px;
-    color:white;
+    color: white;
   }
   &__input {
     margin-bottom: 20px;
@@ -119,7 +117,7 @@ export default {
     width: 170px;
     background-color: #ff0000;
     color: white;
-    font-size:20px;
+    font-size: 20px;
     border: none;
   }
 }

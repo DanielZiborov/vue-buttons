@@ -1,14 +1,12 @@
 <template>
   <div class="cards">
-    <img 
-      class="cards__image" 
-      :src="image" 
-      :alt="name" 
-    />
+    <img class="cards__image" :src="image" :alt="name" />
     <div class="cards__text">
       <h2 class="cards__price">{{ price }}</h2>
       <div class="cards__description">
-        <span class="cards__name"><strong>{{ name }}</strong></span>
+        <span class="cards__name"
+          ><strong>{{ name }}</strong></span
+        >
       </div>
     </div>
     <div class="cards__labels">
@@ -21,19 +19,19 @@
     </div>
   </div>
 </template>
-  
+
 <script>
 export default {
   name: "TravelCards",
   props: {
     id: Number,
     image: String,
-    name: String, 
+    name: String,
     price: String,
-  }
+  },
 };
 </script>
- 
+
 <style scoped lang="less">
 .cards {
   margin-top: 7px;
@@ -72,15 +70,16 @@ export default {
     margin-bottom: 8px;
     width: 94px;
     height: 30px;
-    background-color:#fb504d;
+    background-color: #fb504d;
   }
   &__label2 {
     margin-bottom: 8px;
     width: 60px;
     height: 30px;
-    background-color:#48484a;
+    background-color: #48484a;
   }
-  &__labelText1, &__labelText2 {
+  &__labelText1,
+  &__labelText2 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,4 +88,3 @@ export default {
   }
 }
 </style>
-  

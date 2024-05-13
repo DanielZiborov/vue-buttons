@@ -18,18 +18,18 @@
       </router-link>
     </ul>
     <div class="footer__input-box">
-      <input 
-        type="text" 
+      <input
+        type="text"
         placeholder="Enter your Email                     >"
-        class="footer__input" 
-      >
+        class="footer__input"
+      />
     </div>
     <div class="footer__icons">
-      <img src="/TravelWebsite/facebook.png" class="footer__icon">
-      <img src="/TravelWebsite/twitter.png" class="footer__icon">
-      <img src="/TravelWebsite/3image.png" class="footer__icon">
-      <img src="/TravelWebsite/4image.png" class="footer__icon">
-      <img src="/TravelWebsite/5image.png" class="footer__icon">
+      <img src="/TravelWebsite/facebook.png" class="footer__icon" />
+      <img src="/TravelWebsite/twitter.png" class="footer__icon" />
+      <img src="/TravelWebsite/3image.png" class="footer__icon" />
+      <img src="/TravelWebsite/4image.png" class="footer__icon" />
+      <img src="/TravelWebsite/5image.png" class="footer__icon" />
     </div>
     <ul class="footer__col1">
       <li class="footer__col1el">Specials</li>
@@ -52,7 +52,7 @@
 <script>
 export default {
   name: "HomeFooter",
-}
+};
 </script>
 
 <style scoped lang="less">
@@ -68,51 +68,51 @@ export default {
   }
   &__item {
     font-weight: 600px;
-    color:white;
-    font-family:'Trebuchet MS';
-    padding-left:65px;
-    padding-top:15px;
+    color: white;
+    font-family: "Trebuchet MS";
+    padding-left: 65px;
+    padding-top: 15px;
   }
   &__input {
     width: 200px;
     height: 45px;
     background-color: white;
     padding-left: 30px;
-    border:none;
-    margin-left:1055px;
+    border: none;
+    margin-left: 1055px;
   }
   &__icons {
-    width:200px;
-    margin-left:750px;
-    margin-top:-38px;
+    width: 200px;
+    margin-left: 750px;
+    margin-top: -38px;
   }
   &__icon {
-    width:35px;
+    width: 35px;
   }
   &__col1 {
-    margin-top:-45px;
-    margin-left:70px;
+    margin-top: -45px;
+    margin-left: 70px;
     list-style: none;
     justify-content: space-between;
   }
   &__col1el {
-    color:white;
-    padding-top:20px;
+    color: white;
+    padding-top: 20px;
   }
   &__col2 {
-    margin-top:-205px;
-    margin-left:385px;
+    margin-top: -205px;
+    margin-left: 385px;
     list-style: none;
     justify-content: space-between;
   }
   &__col2el {
-    color:white;
-    padding-top:20px;
+    color: white;
+    padding-top: 20px;
   }
   &__last {
-    color:white;
-    padding-top:142px;
-    padding-left:105px;
+    color: white;
+    padding-top: 142px;
+    padding-left: 105px;
   }
 }
 </style>
