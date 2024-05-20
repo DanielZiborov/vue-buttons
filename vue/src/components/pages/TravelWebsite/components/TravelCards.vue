@@ -4,17 +4,17 @@
     <div class="cards__text">
       <h2 class="cards__price">{{ price }}</h2>
       <div class="cards__description">
-        <span class="cards__name"
-          ><strong>{{ name }}</strong></span
-        >
+        <span class="cards__name">
+          <strong>{{ name }}</strong>
+        </span>
       </div>
     </div>
     <div class="cards__labels">
       <div class="cards__label1">
-        <h class="cards__labelText1">Left</h>
+        <h class="cards__labelText">Left</h>
       </div>
       <div class="cards__label2">
-        <h class="cards__labelText2">Right</h>
+        <h class="cards__labelText">Right</h>
       </div>
     </div>
   </div>
@@ -78,8 +78,7 @@ export default {
     height: 30px;
     background-color: #48484a;
   }
-  &__labelText1,
-  &__labelText2 {
+  &__labelText {
     display: flex;
     align-items: center;
     justify-content: center;

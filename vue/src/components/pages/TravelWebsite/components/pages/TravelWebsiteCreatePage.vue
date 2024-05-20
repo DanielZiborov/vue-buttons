@@ -42,7 +42,7 @@
             class="create__input"
           />
         </div>
-        <button @click="createMember" class="create__btn">Create</button>
+        <button class="create__btn" @click="() => createMember()" >Create</button>
       </div>
       <Footer />
     </div>
