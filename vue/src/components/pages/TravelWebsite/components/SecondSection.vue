@@ -7,7 +7,7 @@
         </div>
         <CustomSearch
           placeholderText=""
-          @search="() => filterMembers(searchText)"
+          @search="(searchText) => filterMembers(searchText)"
         />
       </div>
       <div class="second-section__cards-place">

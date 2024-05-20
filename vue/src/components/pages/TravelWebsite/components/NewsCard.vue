@@ -7,6 +7,7 @@
         :key="news.id"
         :style="{
           'scroll-snap-align': activeIndex === index ? 'start' : 'none',
+          'display': activeIndex === index ? 'block' : 'none',
         }"
       >
         <router-link
@@ -48,10 +49,6 @@ export default {
   methods: {
     goToSlide(index) {
       this.activeIndex = index;
-      const cards = this.$refs.сontainer.querySelectorAll(".cards__content");
-      cards.forEach((card, i) => {
-        card.style.display = i === index ? "block" : "none";
-      });
     },
   },
   mounted() {
