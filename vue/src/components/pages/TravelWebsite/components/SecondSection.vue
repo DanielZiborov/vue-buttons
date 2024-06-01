@@ -7,7 +7,7 @@
         </div>
         <CustomSearch
           placeholderText=""
-          @search="(searchText) => filterMembers(searchText)"
+          @search="(searchText) => loadCard(searchText)"
         />
       </div>
       <div class="second-section__cards-place">
@@ -29,32 +29,26 @@
 <script>
 import TravelCards from "./TravelCards.vue";
 import CustomSearch from "./CustomSearch";
-import { mapGetters } from "vuex";
+import {mapActions, mapGetters} from "vuex";
 export default {
   name: "SecondSection",
   components: {
     TravelCards,
     CustomSearch,
   },
-  data() {
-    return {
-      filteredMembersData: [],
-    };
-  },
   computed: {
-    ...mapGetters("TravelWebsiteCardSecondStore", ["getMembers"]),
+    ...mapGetters("TravelWebsiteCardSecondStore", ["getCard"]),
     filteredMembers() {
-      return this.filteredMembersData.length != 0
-        ? this.filteredMembersData
-        : this.getMembers;
+      return this.getCard
     },
   },
   methods: {
-    filterMembers(searchText) {
-      this.filteredMembersData = this.getMembers.filter((member) =>
-        member.name.toLowerCase().includes(searchText.toLowerCase())
-      );
-    },
+    ...mapActions('TravelWebsiteCardSecondStore', [
+      'loadCard'
+    ]),
+  },
+  created () {
+    this.loadCard('')
   },
 };
 </script>

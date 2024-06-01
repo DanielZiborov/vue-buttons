@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "CustomSearch",
   props: {
@@ -32,8 +33,11 @@ export default {
     };
   },
   methods: {
+    ...mapActions('TravelWebsiteCardSecondStore', [
+      'loadCard'
+    ]),
     handleSearch() {
-      this.$emit("search", this.searchText);
+      this.loadCard(this.searchText); 
     },
   },
 };

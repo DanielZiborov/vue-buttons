@@ -1,11 +1,9 @@
 <template>
   <div class="news-page">
     <div class="news-page__container">
-      <div v-for="news in filteredNews" class="news-page__card" :key="news.id">
-        <img class="news-page__image" :src="news.image" :alt="news.id" />
-        <h1 class="news-page__name">{{ news.name }}</h1>
-        <p class="news-page__text">{{ news.text }}</p>
-      </div>
+      <img class="news-page__image" :src="getSingleNews.image" :alt="getSingleNews.name" />
+      <h1 class="news-page__name">{{ getSingleNews.name }}</h1>
+      <p class="news-page__text">{{ getSingleNews.text }}</p>
     </div>
     <HomeFooter />
   </div>
@@ -20,11 +18,11 @@ export default {
     HomeFooter,
   },
   computed: {
-    ...mapGetters("TravelWebsiteCardFirstStore", ["getNews"]),
-    filteredNews() {
-      const newsId = this.$route.params.id;
-      return this.getNews.filter((news) => news.id === newsId);
-    },
+   ...mapGetters("TravelWebsiteCardFirstStore", ["getSingleNews"]),
+  },
+  created() {
+    const newsId = this.$route.params.id;
+    this.$store.dispatch('TravelWebsiteCardFirstStore/loadSingleNews', newsId);
   },
 };
 </script>
@@ -32,6 +30,9 @@ export default {
 <style lang="less" scoped>
 .news-page {
   &__container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
     padding: 40px;
   }
   &__menu {
@@ -52,10 +53,14 @@ export default {
     width: 500px;
     margin: 0 auto;
     margin-bottom: 30px;
+    display: block; 
+    text-align: center; 
   }
   &__text {
     width: 700px;
     margin: 0 auto;
+    display: block; 
+    text-align: center; 
   }
 }
 </style>

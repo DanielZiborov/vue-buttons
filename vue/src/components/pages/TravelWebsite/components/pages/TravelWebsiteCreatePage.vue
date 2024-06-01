@@ -5,7 +5,7 @@
         <div class="create__form">
           <label for="name" class="create__label">name:</label>
           <input
-            v-model="formData.name"
+            v-model="cardData.name"
             type="text"
             placeholder="name"
             id="name"
@@ -15,7 +15,7 @@
         <div class="create__form">
           <label for="id" class="create__label">Id:</label>
           <input
-            v-model="formData.id"
+            v-model="cardData.id"
             type="text"
             placeholder="Id"
             id="id"
@@ -25,7 +25,7 @@
         <div class="create__form">
           <label for="img" class="create__label">image:</label>
           <input
-            v-model="formData.image"
+            v-model="cardData.image"
             type="url"
             placeholder="URL of image"
             id="img"
@@ -35,14 +35,14 @@
         <div class="create__form">
           <label for="price" class="create__label">price:</label>
           <input
-            v-model="formData.price"
+            v-model="cardData.price"
             type="text"
             placeholder="price"
             id="price"
             class="create__input"
           />
         </div>
-        <button class="create__btn" @click="() => createMember()" >Create</button>
+        <button class="create__btn" @click="() => createCard()" >Create</button>
       </div>
       <Footer />
     </div>
@@ -59,7 +59,7 @@ export default {
   },
   data() {
     return {
-      formData: {
+      cardData: {
         name: "",
         id: "",
         image: "",
@@ -68,19 +68,16 @@ export default {
     };
   },
   methods: {
-    ...mapActions("TravelWebsiteCardSecondStore", ["addMember"]),
-    createMember() {
-      const newMember = {
-        name: this.formData.name,
-        id: this.formData.id,
-        image: this.formData.image,
-        price: this.formData.price,
-      };
-      this.addMember(newMember);
-      this.formData.name = "";
-      this.formData.id = "";
-      this.formData.image = "";
-      this.formData.price = "";
+    ...mapActions("TravelWebsiteCardSecondStore", ["addCard", "loadCard"]),
+    createCard() {
+      this.addCard(this.cardData).then(() => {
+        this.loadCard(); 
+      });
+      
+      this.cardData.name = "";
+      this.cardData.id = "";
+      this.cardData.image = "";
+      this.cardData.price = "";
     },
   },
 };

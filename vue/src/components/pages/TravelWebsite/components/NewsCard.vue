@@ -2,7 +2,7 @@
   <div class="scroll-container">
     <div class="cards" ref="сontainer">
       <div
-        v-for="(news, index) in getNews"
+        v-for="(news, index) in this.getNews"
         class="cards__content"
         :key="news.id"
         :style="{
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapActions,mapGetters } from "vuex";
 export default {
   name: "NewsCard",
   data() {
@@ -50,12 +50,18 @@ export default {
     goToSlide(index) {
       this.activeIndex = index;
     },
+    ...mapActions('TravelWebsiteCardFirstStore', [
+      'loadNews'
+    ]),
   },
   mounted() {
     this.$nextTick(() => {
       this.$refs.сontainer.style.overflowX = "hidden";
     });
   },
+  created () {
+    this.loadNews();
+  }
 };
 </script>
 
