@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '../components/pages/Home.vue'
+import FilesPage from '@/components/pages/FilesPage.vue'
 import { RouteNames } from './routes'
 
 Vue.use(VueRouter)
@@ -10,7 +11,12 @@ const routes = [
     path: '/',
     name: RouteNames.HOME,
     component: HomePage
-  }
+  },
+  {
+    path: '/FilesPage',
+    name: RouteNames.FILESPAGE,
+    component: FilesPage
+  },
 ]
 
 const router = new VueRouter({
