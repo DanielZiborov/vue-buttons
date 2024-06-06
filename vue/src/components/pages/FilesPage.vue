@@ -1,14 +1,13 @@
 <template>
   <div>
-    <div class="dropzone" @dragover.prevent="handleDragOver" @drop.prevent="handleDrop">
+    <div @dragover.prevent="(event) => handleDragOver(event)" @drop.prevent="(event) => handleDrop(event)" class="dropzone">
       Перетащите файлы сюда
     </div>
-    <input type="file" @change="handleFiles" multiple ref="fileInput" />
-    <button @click="uploadFiles" v-if="uploadMode === 'single'">Загрузить (Одиночный)</button>
-    <button @click="uploadFiles" v-else>Загрузить (Все сразу)</button>
-    <button @click="toggleUploadMode">Переключить режим ({{ uploadMode }})</button>
-    <button @click="toggleAutoUpload">Автоматическая загрузка ({{ autoUploadEnabled ? 'Включено' : 'Выключено'
-    }})</button>
+    <input type="file" multiple ref="fileInput" @change="(event) => handleFiles(event)" />
+    <button v-if="uploadMode === 'single'" @click="() => uploadFiles()">Загрузить (Одиночный)</button>
+    <button v-else @click="() => uploadFiles()">Загрузить (Все сразу)</button>
+    <button @click="() => toggleUploadMode()">Переключить режим ({{ uploadMode }})</button>
+    <button @click="() => toggleAutoUpload()">Автоматическая загрузка ({{ autoUploadEnabled ? 'Включено' : 'Выключено' }})</button>
     <div v-for="(file, index) in files" :key="index" class="file-item">
       <span class="file-name">{{ file.name }}</span> -
       <span :class="['file-status', file.status]">{{ getStatus(file) }}</span>
@@ -52,7 +51,7 @@ export default {
         if (this.uploadMode === 'single') {
           this.autoUploadSingle();
         } else {
-          this.autoUploadBatch();
+          this.uploadAllFiles();
         }
       }
     },
@@ -66,7 +65,7 @@ export default {
         if (this.uploadMode === 'single') {
           this.autoUploadSingle();
         } else {
-          this.autoUploadBatch();
+          this.uploadAllFiles();
         }
       }
     },
@@ -128,15 +127,6 @@ export default {
       if (nextFile) {
         this.uploadFile(nextFile);
       }
-    },
-    autoUploadBatch() {
-      this.currentUploadingFiles = [];
-      this.files.forEach(file => {
-        if (file.status === 'waiting') {
-          this.currentUploadingFiles.push(file);
-          this.uploadFile(file);
-        }
-      });
     },
   },
 };
